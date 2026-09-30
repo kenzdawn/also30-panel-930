@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Thirty Years of Belonging</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root{
+    color-scheme:light; --red:#aa231f; --slate:#3f525c;
+    --bg:#ffffff; --card:#ffffff; --ink:#22313a; --mute:#5b6b74; --line:#e3e8ea;
+    --ever:#3f525c; --ever-deep:#aa231f; --ever-ink:#ffffff; --ochre:#ffd7b0; --ochre-ink:#22313a; --river:#aa231f; --teal:#00a896;
+    --tint:#f3f5f6; --tint-blue:#e6f6f4; --tint-gold:#fdeceb;
+    --display:"Outfit","Segoe UI",system-ui,sans-serif; --sans:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;margin:0}
+  h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+  h2{font-size:clamp(28px,4vw,40px);color:var(--ever);margin-bottom:8px}
+  h3{font-size:22px;color:var(--ever)}
+  p{margin:0}
+  a{color:var(--river)}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--river);font-weight:600}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:16px}
+  section{padding-block:56px;border-top:1px solid var(--line)}
+  .lede{max-width:64ch;color:var(--mute);font-size:18px;margin-top:10px}
+
+  .hero{position:relative;background:#fff;color:var(--ink);padding-block:64px 8px;border:0;overflow:hidden}
+  .hero-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:center}
+  @media (max-width:760px){.hero-top{grid-template-columns:1fr}}
+  .hero .kicker{color:var(--red)}
+  .hero h1{font-size:clamp(44px,6.2vw,76px);font-weight:700;color:var(--slate,#3f525c);margin:14px 0 16px;line-height:1.02;letter-spacing:-.02em;max-width:11ch}
+  .hero .tag{font-size:clamp(18px,2vw,22px);font-style:italic;color:var(--mute);max-width:36ch;margin:0}
+  .hero .cta:hover,.hero .cta:focus-visible{background:#8e1b19;outline:none}
+  .thirty{text-align:right;line-height:.82}
+  .thirty b{font-family:var(--display);font-weight:700;color:var(--red);font-size:clamp(160px,26vw,360px);letter-spacing:-.06em;display:block;transform:translateX(.04em)}
+  .thirty small{display:block;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-top:10px;font-variant-numeric:tabular-nums}
+  @media (max-width:760px){.thirty{text-align:left}.thirty b{transform:none}}
+  .envband{background:var(--tint);padding-block:44px 56px;border-top:1px solid var(--line)}
+  .envband h2{font-size:26px;margin:0 0 4px}
+  .envband .sub{color:var(--mute);font-size:17px;margin:0}
+  .envelopes{display:grid;gap:18px;margin-top:26px}
+  .env{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .env button{all:unset;display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:center;width:100%;cursor:pointer;padding:22px 24px 18px;box-sizing:border-box}
+  .env button:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+  @media (max-width:640px){.env button{grid-template-columns:1fr}}
+  .env .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--river);font-weight:600}
+  .env .name{font-family:var(--display);font-size:24px;color:var(--ever);margin-top:4px}
+  .env .hint{font-size:15px;color:var(--mute);margin-top:6px}
+  .env .flapbtn{display:inline-block;margin-top:10px;font-size:14px;font-weight:600;color:var(--teal)}
+  .env .body{display:none;border-top:1px dashed var(--line);padding:22px 24px;background:var(--tint)}
+  .env.open .body{display:block}
+
+  /* the paper envelope */
+  .paper{position:relative;width:260px;max-width:100%;aspect-ratio:3/2;margin:64px auto 6px;perspective:900px}
+  .paper .back{position:absolute;inset:0;background:#efe6d6;border-radius:6px;box-shadow:0 8px 20px rgba(34,49,58,.18)}
+  .paper .letter{position:absolute;left:7%;right:7%;top:9%;bottom:9%;background:#fff;border-radius:4px;box-shadow:0 2px 8px rgba(34,49,58,.15);z-index:1;padding:10px 12px;font-size:11px;line-height:1.35;color:var(--ink);overflow:hidden;transition:transform .55s cubic-bezier(.2,.8,.2,1) .25s}
+  .paper .letter b{display:block;font-family:var(--display);font-size:12px;color:var(--red);margin-bottom:4px}
+  .paper .letter i{display:block;height:5px;background:#e6ebee;border-radius:3px;margin-top:6px}
+  .paper .front{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,#f7f0e3,#eadfcb);border-radius:6px;clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%)}
+  .paper .flap{position:absolute;left:0;right:0;top:0;height:56%;z-index:3;background:linear-gradient(180deg,#e8dcc6,#dccfb6);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .55s cubic-bezier(.2,.8,.2,1),z-index 0s .3s;backface-visibility:hidden}
+  .paper .flap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#b9332a,#8e1b19);clip-path:polygon(0 0,100% 0,50% 100%);transform:rotateX(180deg);backface-visibility:hidden}
+  .paper .seal{position:absolute;left:50%;top:56%;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#c7382d,#8e1b19);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:grid;place-items:center;z-index:4;box-shadow:0 2px 4px rgba(0,0,0,.25);transition:opacity .2s}
+  .env.open .paper .flap{transform:rotateX(180deg);z-index:0}
+  .env.open .paper .seal{opacity:0}
+  .env.open .paper .letter{transform:translateY(-58%)}
+  @media (prefers-reduced-motion:reduce){.paper .flap,.paper .letter{transition:none}}
+  .mail{font-size:16px;color:var(--ink)}
+  .mail .from{font-size:13px;color:var(--mute);margin-bottom:10px}
+  .mail .note{color:var(--mute)}
+  .mail .subj{font-weight:600;margin-bottom:10px}
+  .mail p+p{margin-top:10px}
+  .mail .cta{display:inline-block;margin-top:12px;background:var(--ever-deep);color:#fff;font-weight:600;padding:8px 14px;border-radius:6px;font-size:14px}
+
+  .grid{display:grid;gap:16px;margin-top:24px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .g5{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+  .card.tint{background:var(--tint);border-color:transparent}
+  .card.blue{background:var(--tint-blue);border-color:transparent}
+  .card.gold{background:var(--tint-gold);border-color:transparent}
+  .card h3{margin-bottom:8px}
+  .card p{color:var(--mute);font-size:16px}
+  .card .big{font-family:var(--display);font-size:44px;font-weight:700;color:var(--ever);line-height:1;font-variant-numeric:tabular-nums}
+  .card .big.blue{color:var(--ever-deep)}
+  .card .label{font-weight:600;color:var(--ink);margin-top:6px}
+  .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ever-deep);color:#fff;font-family:var(--display);font-weight:700;font-size:15px;margin-bottom:10px}
+
+  .tl .band.river{background:var(--teal)}
+  .tl .dot{text-align:center;color:var(--ever);font-weight:600;padding-top:4px}
+
+  .cycle{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+  .cycle .card .big{font-size:32px;color:var(--ever-deep)}
+
+  .bar i{display:block;height:22px;background:var(--teal);border-radius:4px;width:var(--w)}
+
+  .close{background:var(--ever-deep);color:#fff;border:0;padding-block:72px}
+  .close .kicker{color:#ffd7b0}
+  .close h2{color:#fff;font-size:clamp(34px,6vw,64px);margin-top:10px}
+  .close p{color:#ffe3dc;max-width:56ch;font-size:18px;margin-top:16px}
+  footer{padding-block:28px;color:var(--mute);font-size:13px}
+  .note{font-size:13px;color:var(--mute);font-style:italic;margin-top:16px}
+  .intro{padding-block:40px 48px;border-top:0}
+  .intro p{max-width:62ch;font-size:19px}
+  .intro p+p{margin-top:12px;color:var(--mute);font-size:17px}
+  .close a.btn{display:inline-block;margin-top:24px;background:#fff;color:var(--red);font-weight:600;padding:12px 20px;border-radius:8px;text-decoration:none}
+  .close a.btn:hover,.close a.btn:focus-visible{background:#ffe3dc;outline:none}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-top">
+    <div>
+      <div class="kicker">A 30th-anniversary campaign concept for ALSO · 2027</div>
+      <h1>Thirty Years of Belonging</h1>
+      <p class="tag">Heart work built this community. Your support keeps it beating.</p>
+    </div>
+    <div class="thirty" aria-hidden="true"><b>30</b><small>1997 &ndash; 2027</small></div>
+  </div>
+</div></header>
+
+<section class="intro"><div class="wrap">
+  <p>Since 1997, ALSO (Advocates for Life Skills &amp; Opportunity) has helped Oregonians with intellectual and developmental disabilities live, work, and belong in their own communities.</p>
+  <p>This concept turns the 30th anniversary into a year of stories, one gathering, and a way to keep giving. Here is what a supporter would receive, one envelope at a time.</p>
+</div></section>
+
+<section class="envband" id="envelopes-section"><div class="wrap">
+  <h2>Three envelopes. One year.</h2>
+  <p class="sub">Open each one to see what lands in a supporter's inbox.</p>
+<div class="envelopes" id="envelopes">
+    <div class="env" id="env1"><button type="button" aria-expanded="false" aria-controls="env1b"><div class="paper" aria-hidden="true"><div class="back"></div><div class="letter"><b>Story 1 of 30</b><i></i><i></i><i style="width:70%"></i></div><div class="front"></div><div class="flap"></div><div class="seal">30</div></div><div>
+      <div class="when">Envelope 1 · January 2027</div><div class="name">30 Stories</div>
+      <div class="hint">One story a week, told by the people who lived it.</div><span class="flapbtn">Open the envelope</span></div></button>
+      <div class="body" id="env1b"><div class="mail">
+        <div class="subj">Story 1 of 30: “I wanted to leave when I wanted to.”</div>
+        <p>Thirty years ago, Oregon families decided that people with developmental disabilities should live in their own communities, on their own terms. This year we are telling thirty stories about what that made possible, one a week.</p>
+        <p>This is the first. It is about a ramp, and about what a ramp is really for.</p>
+        <span class="cta">Read Story 1</span>
+        <p class="note">Sample only. Real stories are shared with each storyteller's consent.</p>
+      </div></div>
+    </div>
+    <div class="env" id="env2"><button type="button" aria-expanded="false" aria-controls="env2b"><div class="paper" aria-hidden="true"><div class="back"></div><div class="letter"><b>You are invited</b><i></i><i></i><i style="width:70%"></i></div><div class="front"></div><div class="flap"></div><div class="seal">30</div></div><div>
+      <div class="when">Envelope 2 · Summer 2027</div><div class="name">The invitation</div>
+      <div class="hint">Expedition: Bridge to Inclusion, 30th Edition.</div><span class="flapbtn">Open the envelope</span></div></button>
+      <div class="body" id="env2b"><div class="mail">
+        <div class="subj">Thirty teams for thirty years</div>
+        <p>Expedition: Bridge to Inclusion returns for the anniversary. Teams take on an urban course together, then gather for a celebration where Story 30 is told live by the person who lived it.</p>
+        <p>Bring a team, sponsor a pillar, or come to cheer.</p>
+        <span class="cta">Save the date</span>
+        <p class="note">Sample only. Date, format, and prices to be set with ALSO.</p>
+      </div></div>
+    </div>
+    <div class="env" id="env3"><button type="button" aria-expanded="false" aria-controls="env3b"><div class="paper" aria-hidden="true"><div class="back"></div><div class="letter"><b>Story 31 is yours</b><i></i><i></i><i style="width:70%"></i></div><div class="front"></div><div class="flap"></div><div class="seal">30</div></div><div>
+      <div class="when">Envelope 3 · November 2027</div><div class="name">The next thirty</div>
+      <div class="hint">A year-end letter and a way to keep giving.</div><span class="flapbtn">Open the envelope</span></div></button>
+      <div class="body" id="env3b"><div class="mail">
+        <div class="subj">Story 31 is yours to write</div>
+        <p>Thirty stories in, here is what your gifts did this year: ramps, communication devices, memberships, a van that kept running, support staff who stayed, and new front doors at The Montage in Gresham. The thirty-first story starts now.</p>
+        <p><b>Heart Work Circle:</b> $30 a month, for the next thirty years. Steady support that lets ALSO plan ahead instead of react.</p>
+        <span class="cta">Join the Heart Work Circle</span>
+        <p class="note">Sample only.</p>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="pillars"><div class="wrap">
+  <div class="kicker">Give to what moved you</div>
+  <h2>Every story ends in a pillar</h2>
+  <p class="lede">Five funding pillars, each with a gift that means something you can picture.</p>
+  <div class="grid g5">
+    <div class="card tint"><div class="big">$300</div><div class="label">Tech for Independence</div><p>a smart-home or communication starter kit</p></div>
+    <div class="card blue"><div class="big blue">$3,000</div><div class="label">Safe and Stable Homes</div><p>a ramp, grab bars, or an emergency repair</p></div>
+    <div class="card tint"><div class="big">$30,000</div><div class="label">Bridge the Gap</div><p>a vehicle on the road for a year</p></div>
+    <div class="card blue"><div class="big blue">$30/mo</div><div class="label">Community Inclusion</div><p>memberships and outings for one person</p></div>
+    <div class="card tint"><div class="big">$1,997</div><div class="label">Team Builders</div><p>training for one direct support professional</p></div>
+  </div>
+  <p class="note">Amounts are illustrative. The 30 runs through them on purpose, and $1,997 honors the founding year.</p>
+</div></section>
+
+<section id="thirties"><div class="wrap">
+  <div class="kicker">The year in thirties</div>
+  <h2>Thirty of everything</h2>
+  <div class="grid g4">
+    <div class="card"><div class="big">30</div><div class="label">stories</div><p>From people supported, families, and the staff who show up every day.</p></div>
+    <div class="card"><div class="big">30</div><div class="label">teams</div><p>At the anniversary Expedition in the summer.</p></div>
+    <div class="card"><div class="big">30</div><div class="label">partners</div><p>Local businesses and organizations, each paired with one pillar.</p></div>
+    <div class="card"><div class="big">$30</div><div class="label">a month</div><p>The Heart Work Circle, for supporters who want to give all year.</p></div>
+  </div>
+</div></section>
+
+<section id="stewardship"><div class="wrap">
+  <div class="kicker">After you give</div>
+  <h2>You will hear what your gift did</h2>
+  <div class="cycle">
+    <div class="card tint"><div class="big">48 hours</div><div class="label">Thank you</div><p>A personal, signed thank-you.</p></div>
+    <div class="card tint"><div class="big">30 days</div><div class="label">Story update</div><p>What your pillar did this month, told as a story.</p></div>
+    <div class="card tint"><div class="big">90 days</div><div class="label">Impact report</div><p>Clear numbers: what was funded, who it reached.</p></div>
+    <div class="card tint"><div class="big">1 year</div><div class="label">Anniversary note</div><p>A look back at your first year with ALSO.</p></div>
+  </div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <div class="kicker">Thirty years of belonging</div>
+  <h2>Which story would you tell first?</h2>
+  <p>Thirty years of belonging is already true. This campaign gives people a way to say so, and a place to put their support.</p>
+  <a class="btn" href="https://alsoweb.org/">Learn about ALSO today</a>
+</div></section>
+
+<footer><div class="wrap">Thirty Years of Belonging is a campaign concept for ALSO's 30th anniversary. It is not an official ALSO page, and no gifts or sign-ups are collected here. To support ALSO today, visit <a href="https://alsoweb.org/">alsoweb.org</a>.</div></footer>
+
+<script>
+  document.querySelectorAll('.env').forEach(function(env){
+    var btn = env.querySelector('button');
+    btn.addEventListener('click', function(){
+      var open = env.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.querySelector('.flapbtn').textContent = open ? 'Close the envelope' : 'Open the envelope';
+    });
+  });
+  if (location.hash === '#env1' || location.hash === '#env2' || location.hash === '#env3') {
+    var target = document.getElementById(location.hash.slice(1));
+    if (target) target.querySelector('button').click();
+  }
+</script>
+
+</body>
+</html>
